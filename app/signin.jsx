@@ -1,15 +1,13 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 import AuthHeader from '../components/AuthHeader'
-import Input from '../components/Input'
 
-const signup = () => {
+const signin = () => {
   return (
     <View>
-      <AuthHeader title="Sign Up"/>
-      <Input label="Name"/>
+      <AuthHeader title="Sign In"/>
     </View>
   )
 }
 
-export default signup
+export default signin

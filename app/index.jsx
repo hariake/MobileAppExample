@@ -1,6 +1,7 @@
 import { View, Text, Image } from 'react-native';
 import React from 'react';
 import CustomButton from '../components/CustomButton';
+import { router } from 'expo-router';
 
 const Splash = () => {
   const handleSignUpPress = () => {
@@ -25,13 +26,14 @@ const Splash = () => {
       </View>
       <View className="mt-8">
       <CustomButton 
-        onPress={handleSignUpPress} 
+        onPress={() => router.push('signup')}
+
         backgroundColor="bg-blue-500" 
         textColor="text-white" 
         title="Sign Up" 
       />
       <CustomButton 
-        onPress={handleSignInPress} 
+        onPress={() => router.push('signin')} 
         backgroundColor="bg-white" 
         textColor="text-blue-500" 
         title="Sign In" 
