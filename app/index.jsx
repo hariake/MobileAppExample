@@ -21,21 +21,21 @@ const Splash = () => {
       />
       <View>
         <Text className="text-4xl font-bold text-center">You'll find</Text>
-        <Text className="text-4xl font-bold text-orange-500 underline text-center">All you need</Text>
+        <Text className="text-4xl font-bold text-orange underline text-center">All you need</Text>
         <Text className="text-4xl font-bold text-black text-center">Here</Text>
       </View>
       <View className="mt-8">
       <CustomButton 
         onPress={() => router.push('signup')}
 
-        backgroundColor="bg-blue-500" 
+        backgroundColor="bg-blue" 
         textColor="text-white" 
         title="Sign Up" 
       />
       <CustomButton 
         onPress={() => router.push('signin')} 
         backgroundColor="bg-white" 
-        textColor="text-blue-500" 
+        textColor="text-blue" 
         title="Sign In" 
       />
       </View>
