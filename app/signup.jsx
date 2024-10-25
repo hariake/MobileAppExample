@@ -5,6 +5,7 @@ import Input from '../components/Input'
 import Checkbox from '../components/Checkbox'
 import CustomButtonKaks from '../components/CustomButtonKaks'
 import Separator from '../components/Separator'
+import { router } from 'expo-router';
 
 
 const signup = () => {
@@ -16,18 +17,21 @@ const signup = () => {
       <AuthHeader title="Sign Up"/>
       <Input label="Name" placeholder="John Doe"/>
       <Input label="Email" placeholder="JohnDoe@gmail.com"/>
-      <Input isPassword label="password" placeholder="********"/>
+      <Input isPassword label="Password" placeholder="********"/>
       <View className="px-4 mt-8 flex-row items-center">
           <Checkbox checked={checked} onCheck={setChecked}/>
           <Text className="text-blue ml-2">I agree to the terms and conditions</Text>
       </View>
       <CustomButtonKaks 
-        className="my-4 mt-8 bg-blue-500 text-white"
-        title="Sign Up" 
+       className="my-4 mt-8 bg-blue-500 text-white"
+       title="Sign Up" 
       />
       <Separator text="Or sign up with"/>
-      <Text className="mt-16 text-blue mb-6 text-center">Already have an Account? 
-        <Text className="font-bold"> Sign In</Text>
+      <Text className="mt-16 text-blue mb-6 text-center">
+        Already have an account? 
+        <Text onPress={() => router.push('signin')} className="font-bold text-blue">
+          {" "}Sign In
+        </Text>
       </Text>
     </View>
   )
