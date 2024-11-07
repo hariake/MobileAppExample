@@ -7,8 +7,12 @@ import { categories } from '../data/categories';
 import CategoryBox from '../components/CategoryBox';
 import { products } from '../data/products';
 import ProductHomeItem from '../components/ProductHomeItem';
+import { useRouter, usePathname } from 'expo-router';
+import { Route } from 'expo-router/build/Route';
+
 
 const Home = () => {
+  const router = useRouter();
   const [selectedCategory, setSelectedCategory] = useState()
   const [keyword, setKeyword] = useState()
   const [selectedProducts, setSelectedProducts] = useState(products)
@@ -39,14 +43,21 @@ const Home = () => {
       onPress={() => setSelectedCategory(item?.id)}
       isSelected= {item.id === selectedCategory}
       title={item?.title} 
-      image={item?.image}/>
+      image={item?.image}
+      
+      />
     );
   };
 
   const renderProductHomeItem = ({ item, index }) => {
     return (
       <View className="flex-1 mx-1 mb-2"> 
-        <ProductHomeItem {...item} />
+        <ProductHomeItem 
+          title={item.title}
+          image={item.image}
+          price={item.price}
+          onPress={ () => router.push(`/product/${item.id}`)}    
+        />
       </View>
     );
   };
