@@ -10,7 +10,7 @@ const Header = ({ title, onBackPress, onLogout, showBack, showSearch, showLogout
     }
   return (
     <View>
-    <View className="flex-row items-center justify-center px-4 py-2 relative">
+    <View className="flex-row items-center justify-center px-4 relative">
       {showBack && (
         <Pressable hitSlop={20} onPress={onBackPress} className="absolute left-4">
           <Image className="w-6 h-6" source={require('../assets/back.png')} />

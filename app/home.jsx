@@ -88,7 +88,6 @@ const Home = () => {
           numColumns={2} // Two columns
           contentContainerStyle={{ paddingBottom: 20 }} // Optional padding at the bottom
         />
-        <Text className="text-lg">Welcome to Home!</Text>
       </View>
       <BottomTabNavigator />
     </SafeAreaView>

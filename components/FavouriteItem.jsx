@@ -1,19 +1,22 @@
 import React from "react";
 import { Pressable, Image, Text, View } from "react-native";
+import { useRouter } from "expo-router"; // Import useRouter
 
-const FavouriteItem = ({ title, image, price, onPress }) => {
+const FavouriteItem = ({ id, title, image, price }) => {
+  const router = useRouter(); // Initialize router
+
   return (
     <Pressable 
-      onPress={onPress} 
-      className="relative flex flex-row p-2 items-start" // Main container styling
+      onPress={() => router.push(`/product/${id}`)} // Navigate to ProductDetails by ID
+      className="relative flex flex-row p-2 items-start"
     >
-      {/* Close Icon in the top-right corner, increased size */}
+      {/* Close Icon in the top-right corner */}
       <Image
         source={require('../assets/close.png')}
-        className="absolute top-2 right-2 w-6 h-6" // Updated size for the icon
+        className="absolute top-2 right-2 w-6 h-6"
       />
 
-      {/* Image on the left, taking 1/3 of the width */}
+      {/* Image on the left */}
       <Image 
         className="w-1/3 h-20 rounded-lg" 
         source={{ uri: image }} 
