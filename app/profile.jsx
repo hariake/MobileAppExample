@@ -28,7 +28,7 @@ const Profile = () => {
         <View className="flex-1 justify-end mb-5">
           <TouchableOpacity
             className="h-20 bg-blue items-center justify-center rounded-xl"
-            onPress={() => router.push("../home")}
+            onPress={() => router.push("../CreateListing")}
           >
             <Text className="text-white text-base font-semibold">
               Add New Listing
