@@ -1,4 +1,4 @@
-import { View, Text, Image, TouchableOpacity, FlatList, Dimensions } from 'react-native';
+import { View, Text, Image, TouchableOpacity, FlatList, Dimensions, Linking } from 'react-native';
 import React, { useState } from 'react';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { products } from '../../data/products';
@@ -69,6 +69,16 @@ const ProductDetails = () => {
         }
     };
 
+    const handleContactSeller = () => {
+        // Ensure product has a seller's email
+        if (product.sellerEmail) {
+            const emailUrl = `mailto:${product.sellerEmail}?subject=Inquiry about ${product.title}&body=Hi, I'm interested in your product listed on the platform.`;
+            Linking.openURL(emailUrl).catch((err) => console.error('Failed to send email:', err));
+        } else {
+            alert('Seller email not available.');
+        }
+    };
+
     return (
         <View className="flex-1 bg-white">
             <View className="relative w-full" style={{ height: '45%' }}>
@@ -90,7 +100,7 @@ const ProductDetails = () => {
                 <Text className="text-2xl font-bold mb-1">{product.title}</Text>
                 <Text className="text-lg text-gray-700 mb-4">Price: €{product.price}</Text>
                 <Text className="text-base text-gray-600 mb-5">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum.
+                    {product.description}
                 </Text>
             </View>
             <View className="flex-row items-center justify-between p-4 bg-white border-t border-gray-200">
@@ -109,7 +119,7 @@ const ProductDetails = () => {
                 <View className="w-2" />
                 <TouchableOpacity 
                     className="flex-1 h-12 bg-blue rounded-full items-center justify-center"
-                    onPress={() => router.push('../home')}
+                    onPress={handleContactSeller} // Update handler to send an email
                 >
                     <Text className="text-white text-base font-semibold">Contact the Seller</Text>
                 </TouchableOpacity>
