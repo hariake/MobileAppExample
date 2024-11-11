@@ -1,14 +1,15 @@
 import { View, Text, FlatList } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import BottomTabNavigator from '../components/BottomTabNavigator';
-import Header from '../components/Header';
-import { categories } from '../data/categories';
-import CategoryBox from '../components/CategoryBox';
-import { products } from '../data/products';
-import ProductHomeItem from '../components/ProductHomeItem';
+import BottomTabNavigator from '@components/BottomTabNavigator';
+import Header from '@components/Header';
+import { categories } from '@data/categories';
+import CategoryBox from '@components/CategoryBox';
+import { products } from '@data/products';
+import ProductHomeItem from '@components/ProductHomeItem';
 import { useRouter, usePathname } from 'expo-router';
-import { Route } from 'expo-router/build/Route';
+
+
 
 
 const Home = () => {

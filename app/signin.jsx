@@ -1,11 +1,12 @@
 import { View, Text } from 'react-native';
 import React, { useState } from 'react';
-import AuthHeader from '../components/AuthHeader';
-import Input from '../components/Input';
-import CustomButtonKaks from '../components/CustomButtonKaks';
-import Separator from '../components/Separator';
+import AuthHeader from '@components/AuthHeader';
+import Input from '@components/Input';
+import CustomButtonKaks from '@components/CustomButtonKaks';
+import Separator from '@components/Separator';
 import { router } from 'expo-router';
 import { Client, Databases, Query } from 'appwrite';
+
 
 const client = new Client();
 const databases = new Databases(client);

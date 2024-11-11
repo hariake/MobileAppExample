@@ -2,9 +2,10 @@ import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
 import { router } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
-import BottomTabNavigator from "../components/BottomTabNavigator";
-import AuthHeader from "../components/AuthHeader";
-import ListItem from "../components/ListItem"; // Import the ListItem component
+import BottomTabNavigator from "@components/BottomTabNavigator";
+import AuthHeader from "@components/AuthHeader";
+import ListItem from "@components/ListItem";
+
 
 const Profile = () => {
   return (

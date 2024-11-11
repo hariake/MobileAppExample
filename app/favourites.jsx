@@ -1,9 +1,10 @@
 import { View, Text, FlatList } from 'react-native';
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import BottomTabNavigator from '../components/BottomTabNavigator';
-import FavouriteItem from '../components/FavouriteItem'; // Import FavouriteItem here
-import { products } from '../data/products';
+import BottomTabNavigator from '@components/BottomTabNavigator';
+import FavouriteItem from '@components/FavouriteItem'; // Using absolute path alias for FavouriteItem
+import { products } from '@data/products'; // Using absolute path alias for products
+
 
 const Favourites = () => {
   const favouriteItems = products.filter((product) => product.isFavorite);

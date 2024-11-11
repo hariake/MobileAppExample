@@ -1,9 +1,9 @@
 import { View, Text, Image, TouchableOpacity, TextInput, ScrollView } from 'react-native';
 import React, { useState } from 'react';
 import * as ImagePicker from 'expo-image-picker';
-import Header from '../components/Header';
+import Header from '@components/Header';
 import { useRouter } from 'expo-router';
-import { products } from '../data/products';  // Import the products array from the local file.
+import { products } from '@data/products';  // Using the absolute path alias for the products array
 
 const CreateListing = () => {
   const router = useRouter();

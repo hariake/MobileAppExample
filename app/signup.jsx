@@ -1,11 +1,12 @@
 import { View, Text } from 'react-native';
 import React, { useState } from 'react';
-import AuthHeader from '../components/AuthHeader';
-import Input from '../components/Input';
-import CustomButtonKaks from '../components/CustomButtonKaks';
-import Separator from '../components/Separator';
+import AuthHeader from '@components/AuthHeader';
+import Input from '@components/Input';
+import CustomButtonKaks from '@components/CustomButtonKaks';
+import Separator from '@components/Separator';
 import { router } from 'expo-router';
-import { registerUser } from '../utils/appwrite'; // Ensure this path is correct
+import { registerUser } from '@utils/appwrite';
+
 
 const SignUp = () => {
   const [name, setName] = useState('');

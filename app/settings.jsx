@@ -1,9 +1,10 @@
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Header from "../components/Header";
-import ListItem from "../components/ListItem";
-import EditableBox from "../components/EditableBox";
+import Header from "@components/Header";
+import ListItem from "@components/ListItem";
+import EditableBox from "@components/EditableBox";
+
 
 const Settings = () => {
   const [isEditable, setIsEditable] = useState(false);
