@@ -1,7 +1,8 @@
 import { View, Text, Image } from 'react-native';
 import React from 'react';
-import CustomButton from '../components/CustomButton';
+import CustomButton from '@components/CustomButton';
 import { router } from 'expo-router';
+
 
 const Splash = () => {
   const handleSignUpPress = () => {
