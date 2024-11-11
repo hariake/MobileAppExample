@@ -2,45 +2,18 @@ import { View, Text } from 'react-native';
 import React, { useState } from 'react';
 import AuthHeader from '../components/AuthHeader';
 import Input from '../components/Input';
-import Checkbox from '../components/Checkbox';
 import CustomButtonKaks from '../components/CustomButtonKaks';
 import Separator from '../components/Separator';
 import { router } from 'expo-router';
-import { Client, Databases } from 'appwrite';
-
-const client = new Client();
-const databases = new Databases(client);
-client
-  .setEndpoint('https://cloud.appwrite.io/v1') // Replace with your Appwrite endpoint
-  .setProject('672dc73c002efc545804');
-
-async function registerUser(name, email, password) {
-  try {
-    const response = await databases.createDocument(
-      '672dcef500338eae7c41', // Replace with your actual database ID
-      '672dcf0a001a92e182c8', // Replace with your actual collection ID
-      'unique()', // Ensure unique document ID
-      {
-        Name: name,
-        Email: email,
-        Password: password,
-      }
-    );
-    return response;
-  } catch (error) {
-    console.error("Error during user registration:", error);
-    throw error;
-  }
-}
+import { registerUser } from '../utils/appwrite'; // Ensure this path is correct
 
 const SignUp = () => {
-  const [checked, setChecked] = useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const handleSubmit = async () => {
+  const handleSignUp = async () => {
     setError('');
 
     if (!name || !email || !password) {
@@ -48,16 +21,16 @@ const SignUp = () => {
       return;
     }
 
-    if (!checked) {
-      setError('You must agree to the terms and conditions.');
-      return;
-    }
-
     try {
-      const user = await registerUser(name, email, password);
+      // Register the user in the Appwrite "Users" collection
+      const response = await registerUser(name, email, password);
+      console.log('User registered successfully:', response);
+
+      // Redirect to sign-in page after successful registration
       router.push('/signin');
     } catch (error) {
-      setError('Registration failed. Please try again.');
+      console.error('Sign Up Error:', error);
+      setError('Sign up failed. Please try again.');
     }
   };
 
@@ -65,7 +38,7 @@ const SignUp = () => {
     <View>
       <AuthHeader title="Sign Up" />
       {error && <Text className="text-red-500 text-center">{error}</Text>}
-      
+
       <Input
         label="Name"
         placeholder="John Doe"
@@ -85,20 +58,19 @@ const SignUp = () => {
         value={password}
         onChangeText={setPassword}
       />
-      <View className="px-4 mt-8 flex-row items-center">
-        <Checkbox checked={checked} onCheck={setChecked} />
-        <Text className="text-blue ml-2">I agree to the terms and conditions</Text>
-      </View>
+
       <CustomButtonKaks
+        onPress={handleSignUp}
         className="my-4 mt-8 bg-blue-500 text-white"
         title="Sign Up"
-        onPress={handleSubmit}
       />
+
       <Separator text="Or sign up with" />
+
       <Text className="mt-16 text-blue mb-6 text-center">
         Already have an account?{' '}
         <Text
-          onPress={() => router.push('signin')}
+          onPress={() => router.push('/signin')}
           className="font-bold text-blue"
         >
           Sign In
