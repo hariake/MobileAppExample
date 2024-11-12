@@ -17,7 +17,7 @@ Check out the app design on Figma: [Furniture App Design](https://www.figma.com/
 ### Cloning the Repository
 Clone the repository using the following commands:
 ```bash
-git clone https://github.com/Hariake/MobileAppExample
+git clone https://github.com/hariake/MobileAppExample
 cd MobileAppExample
 ```
 ### Installation
