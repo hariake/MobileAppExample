@@ -19,15 +19,15 @@ Clone the repository using the following commands:
 ```bash
 git clone https://github.com/Hariake/MobileAppExample
 cd MobileAppExample
-Installation
+```
+###Installation
 Install the dependencies using the following command:
 
-bash
-Copy code
+```bash
 npm install
-Run the Project
+```
+###Run the Project
 To run the project and clear the cache, use:
-
-bash
-Copy code
+```bash
 npx expo start -c
+```
