@@ -1,8 +1,3 @@
-
-Certainly! Here it is as one big code block:
-
-markdown
-Copy code
 # MobileAppExample
 
 **MobileAppExample** is a shopping platform built using **React**, **JavaScript**, **Appwrite**, and **Expo Go**. Users can create accounts, browse products, and make their own listings.
